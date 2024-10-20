@@ -1,0 +1,61 @@
++----------------------------------+
+|             User                 |
++----------------------------------+
+| - userId: String                 |
+| - name: String                   |
+| - email: String                  |
++----------------------------------+
+| + authenticateUser(pin): Boolean |
+| + pickUpParcel(parcelId): Boolean|
++----------------------------------+
+
++----------------------------------+
+|            Locker                |
++----------------------------------+
+| - lockerId: String               |
+| - size: Enum(Size)               |
+| - isAvailable: Boolean           |
+| - pinCode: String                |
+| - parcel: Parcel                 |
++----------------------------------+
+| + storeParcel(parcel: Parcel)    |
+| + releaseParcel(userPin: String) |
+| + isLockerAvailable(): Boolean   |
++----------------------------------+
+
++----------------------------------+
+|          Parcel                  |
++----------------------------------+
+| - parcelId: String               |
+| - size: Enum(Size)               |
++----------------------------------+
+
++----------------------------------+
+|      DeliveryAgent               |
++----------------------------------+
+| - agentId: String                |
+| - name: String                   |
++----------------------------------+
+| + deliverParcel(parcel: Parcel,  |
+|   locker: Locker)                |
++----------------------------------+
+
++----------------------------------+
+|       LockerManager              |
++----------------------------------+
+| - lockers: List<Locker>          |
++----------------------------------+
+| + findAvailableLocker(parcel:    |
+|   Parcel): Locker                |
+| + addLocker(locker: Locker)      |
+| + removeLocker(lockerId: String) |
++----------------------------------+
+
++----------------------------------+
+|  NotificationService             |
++----------------------------------+
+| - notifications: List<String>    |
++----------------------------------+
+| + sendNotification(userId: String,|
+|   message: String)               |
++----------------------------------+
